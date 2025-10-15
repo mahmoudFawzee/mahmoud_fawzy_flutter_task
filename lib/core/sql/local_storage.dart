@@ -22,6 +22,14 @@ abstract class LocalStorageClient {
     RecordFiltering? recordFilter,
   });
 
+  ///get table rows based on some condition
+  Future<List<Map<String, dynamic>?>> getPaginatedRecords(
+    String tableName, {
+    required RecordFiltering? recordFilter,
+    required int perPage,
+    required int offset,
+  });
+
   ///get all rows in table
   Future<List<Map<String, dynamic>?>> getFullTable(String tableName);
 

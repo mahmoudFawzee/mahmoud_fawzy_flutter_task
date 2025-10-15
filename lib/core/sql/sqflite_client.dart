@@ -168,4 +168,22 @@ final class SqfliteClient implements LocalStorageClient {
     );
     return results.every((result) => result);
   }
+
+  @override
+  Future<List<Map<String, dynamic>?>> getPaginatedRecords(
+    String tableName, {
+    required RecordFiltering? recordFilter,
+    required int perPage,
+    required int offset,
+  }) async {
+    final db = await _getDB;
+    return await db.query(
+      tableName,
+      columns: recordFilter?.columns,
+      where: recordFilter?.where,
+      whereArgs: recordFilter?.whereArgus,
+      limit: perPage,
+      offset: offset,
+    );
+  }
 }
