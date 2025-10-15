@@ -29,4 +29,7 @@ final class Product {
       _$ProductFromJson(json);
 
   Map<String, dynamic> toJson() => _$ProductToJson(this);
+
+  static List<Product> fromJsonList(List json) =>
+      json.map((item) => Product.fromJson(item)).toList();
 }
