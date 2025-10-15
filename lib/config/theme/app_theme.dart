@@ -3,6 +3,7 @@ import 'package:mahmoudfawzy_flutter_task/config/theme/colors_manger.dart';
 
 final class AppTheme {
   static ThemeData get appTheme => ThemeData(
+    scaffoldBackgroundColor: ColorsManger.white,
     fontFamily: 'Tajawal',
     colorScheme:
         ColorScheme.fromSeed(
