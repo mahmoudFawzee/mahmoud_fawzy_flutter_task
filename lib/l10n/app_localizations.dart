@@ -103,6 +103,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Home'**
   String get home;
+
+  /// chat screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Chat'**
+  String get chat;
+
+  /// home screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Add Advertisement'**
+  String get addAdvertisement;
+
+  /// home screen title
+  ///
+  /// In en, this message translates to:
+  /// **'My Advertisements'**
+  String get myAdvertisements;
+
+  /// home screen title
+  ///
+  /// In en, this message translates to:
+  /// **'My Account'**
+  String get myAccount;
 }
 
 class _AppLocalizationsDelegate

@@ -3,5 +3,21 @@
   "home": "Home",
   "@home": {
     "description": "home screen title"
+  },
+  "chat": "Chat",
+  "@chat": {
+    "description": "chat screen title"
+  },
+  "addAdvertisement": "Add Advertisement",
+  "@addAdvertisement": {
+    "description": "home screen title"
+  },
+  "myAdvertisements": "My Advertisements",
+  "@myAdvertisements": {
+    "description": "home screen title"
+  },
+  "myAccount": "My Account",
+  "@myAccount": {
+    "description": "home screen title"
   }
 }

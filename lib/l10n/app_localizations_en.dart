@@ -10,4 +10,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get home => 'Home';
+
+  @override
+  String get chat => 'Chat';
+
+  @override
+  String get addAdvertisement => 'Add Advertisement';
+
+  @override
+  String get myAdvertisements => 'My Advertisements';
+
+  @override
+  String get myAccount => 'My Account';
 }
