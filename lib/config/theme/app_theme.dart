@@ -111,6 +111,7 @@ extension AppColors on BuildContext {
   Color get lightOrang => ColorsManger.lightOrang;
   Color get deepOrange => ColorsManger.deepOrange;
   Color get fontGrey => ColorsManger.fontGrey;
+  Color get deepOffWhite => ColorsManger.deepOffWhit;
   Color get green => ColorsManger.green;
   Color get offWhit => ColorsManger.offWhit;
   Color get greyBorder => ColorsManger.greyBorder;

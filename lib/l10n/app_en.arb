@@ -27,5 +27,17 @@
   "all": "All",
   "@all": {
     "description": "all word"
+  },
+  "allOffers": "All Offers",
+  "@allOffers": {
+    "description": "all word"
+  },
+  "freeDelivery": "Free Delivery",
+  "@freeDelivery": {
+    "description": "all word"
+  },
+  "ifOrderNow": "For any offer you order now!",
+  "@ifOrderNow": {
+    "description": "all word"
   }
 }

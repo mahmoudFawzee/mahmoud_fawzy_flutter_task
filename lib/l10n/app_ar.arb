@@ -6,5 +6,8 @@
   "myAdvertisements": "إعلاناتي",
   "myAccount": "حسابي",
   "all": "الكل",
-  "discoverOffers": "أستكشف العروض"
+  "discoverOffers": "أستكشف العروض",
+  "allOffers": "كل العروض",
+  "freeDelivery": "شحن مجاني",
+  "ifOrderNow": "لأي عرض تطلبه دلوقتي!"
 }

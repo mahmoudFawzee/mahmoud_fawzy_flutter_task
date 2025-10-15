@@ -28,4 +28,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get all => 'الكل';
+
+  @override
+  String get allOffers => 'كل العروض';
+
+  @override
+  String get freeDelivery => 'شحن مجاني';
+
+  @override
+  String get ifOrderNow => 'لأي عرض تطلبه دلوقتي!';
 }

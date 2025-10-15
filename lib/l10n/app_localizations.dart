@@ -139,6 +139,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All'**
   String get all;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'All Offers'**
+  String get allOffers;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Free Delivery'**
+  String get freeDelivery;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'For any offer you order now!'**
+  String get ifOrderNow;
 }
 
 class _AppLocalizationsDelegate
