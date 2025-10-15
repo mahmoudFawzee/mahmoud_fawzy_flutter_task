@@ -1,4 +1,8 @@
 {
   "@@locale": "ar",
-  "home": "Home"
+  "home": "الرئيسية",
+  "chat": "محادثة",
+  "addAdvertisement": "أضف إعلان",
+  "myAdvertisements": "إعلاناتي",
+  "myAccount": "حسابي"
 }
