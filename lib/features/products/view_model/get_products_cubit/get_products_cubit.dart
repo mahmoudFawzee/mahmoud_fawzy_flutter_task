@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/model/product.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/repo/products_repo.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/view_model/get_products_cubit/get_products_state.dart';
+import '/features/products/model/product.dart';
+import '/features/products/repo/products_repo.dart';
+part 'get_products_state.dart';
 
 final class GetProductsCubit extends Cubit<GetProductsState> {
   final ProductsRepo _repo;
@@ -18,14 +19,14 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
 
   Future getProduct() => _call();
 
-  Future _call({bool loadMore = false}) async {
-    if (loadMore) {
-      _safeEmit(GetProductsState(GetProductsStateEnum.loadMoreLoading));
-    } else {
+  Future _call({bool reset = true}) async {
+    if (reset) {
       _safeEmit(GetProductsState(GetProductsStateEnum.loading));
+    } else {
+      _safeEmit(GetProductsState(GetProductsStateEnum.loadMoreLoading));
     }
 
-    final result = await _repo.getProduct();
+    final result = await _repo.getProduct(GetProductsParams(reset: reset));
     result.fold(
       (failure) {
         _safeEmit(
@@ -37,10 +38,11 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
       },
       (productList) {
         if (productList.isEmpty) {
-          if (loadMore) {
+          if (reset) {
+            _safeEmit(GetProductsState(GetProductsStateEnum.noData));
+          } else {
             _safeEmit(GetProductsState(GetProductsStateEnum.noMoreData));
           }
-          _safeEmit(GetProductsState(GetProductsStateEnum.noData));
           return;
         }
         _productsList.addAll(productList);
@@ -54,5 +56,5 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
     );
   }
 
-  Future loadMoreProducts() => _call(loadMore: true);
+  Future loadMoreProducts() => _call(reset: false);
 }

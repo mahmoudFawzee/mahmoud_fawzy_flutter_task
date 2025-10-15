@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/model/product.dart';
+part of 'get_products_cubit.dart';
 
 final class GetProductsState extends Equatable {
   final GetProductsStateEnum state;
