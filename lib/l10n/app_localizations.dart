@@ -127,6 +127,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Account'**
   String get myAccount;
+
+  /// home screen title
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Offers'**
+  String get discoverOffers;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
 }
 
 class _AppLocalizationsDelegate
