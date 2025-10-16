@@ -31,7 +31,7 @@ const _productsTable = DataBaseTable(
   ],
 );
 const _categoriesTable = DataBaseTable(
-  tableName: TablesNames.productsTable,
+  tableName: TablesNames.categoriesTable,
   columns: [
     TableColumn(
       name: SqlKeys.id,
@@ -43,7 +43,7 @@ const _categoriesTable = DataBaseTable(
   ],
 );
 const _subCategoriesTable = DataBaseTable(
-  tableName: TablesNames.productsTable,
+  tableName: TablesNames.subCategoriesTable,
   columns: [
     TableColumn(
       name: SqlKeys.id,

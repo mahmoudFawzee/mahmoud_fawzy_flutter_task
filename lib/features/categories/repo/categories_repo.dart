@@ -40,7 +40,7 @@ final class CategoriesRepo {
 
   Future addTestingSubCategories() async {
     await _storageClient.insertRecords(
-      TablesNames.categoriesTable,
+      TablesNames.subCategoriesTable,
       [
         //watches
         ...[

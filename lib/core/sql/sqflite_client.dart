@@ -14,7 +14,7 @@ final class SqfliteClient implements LocalStorageClient {
     //?update db version because i will change users scheme
     _db = await openDatabase(
       'task.db',
-
+      version: 1,
       onCreate: (db, version) async {
         await _initTables(db);
       },
