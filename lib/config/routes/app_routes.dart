@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mahmoudfawzy_flutter_task/features/products/cubit/get_products_cubit.dart';
 import '../../features/categories/cubits/get_sub_categories_cubit/get_sub_categories_cubit.dart';
 import '/core/di/injection_container.dart';
 import '/features/categories/cubits/get_categories_cubit/get_categories_cubit.dart';
@@ -27,6 +28,9 @@ class AppRoutes {
                 BlocProvider(
                   create: (context) =>
                       sl.get<GetSubCategoriesCubit>()..getSubCategories(),
+                ),
+                BlocProvider(
+                  create: (context) => sl.get<GetProductsCubit>()..getProduct(),
                 ),
               ],
               child: const ProductsView(),

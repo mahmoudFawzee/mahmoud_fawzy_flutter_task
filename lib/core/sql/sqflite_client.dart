@@ -154,7 +154,7 @@ final class SqfliteClient implements LocalStorageClient {
     final db = await _getDB;
     return await db.query(
       tableName,
-      columns: recordFilter?.columns,
+      //columns: recordFilter?.columns,
       where: recordFilter?.where,
       whereArgs: recordFilter?.whereArgus,
       limit: perPage,

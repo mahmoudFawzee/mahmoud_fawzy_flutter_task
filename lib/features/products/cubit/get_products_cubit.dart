@@ -8,25 +8,35 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
   final ProductsRepo _repo;
 
   GetProductsCubit(this._repo)
-    : super(GetProductsState(GetProductsStateEnum.initial));
+    : super(const GetProductsState(GetProductsStateEnum.initial));
   final List<Product> _productsList = [];
-  bool isLoading = false;
+  bool _isLoading = false;
+  int? _selectedSubCategoryId;
   void _safeEmit(GetProductsState s) {
     if (!isClosed) {
       emit(s);
     }
   }
 
-  Future getProduct() => _call();
+  void getProduct({int? subCategoryId}) {
+    _selectedSubCategoryId = subCategoryId;
+    _call(subCategoryId: subCategoryId);
+  }
 
-  Future _call({bool reset = true}) async {
+  Future _call({bool reset = true, int? subCategoryId}) async {
+    if (_isLoading) return;
     if (reset) {
-      _safeEmit(GetProductsState(GetProductsStateEnum.loading));
+      _productsList.clear;
+      _safeEmit(const GetProductsState(GetProductsStateEnum.loading));
     } else {
-      _safeEmit(GetProductsState(GetProductsStateEnum.loadMoreLoading));
+      _safeEmit(const GetProductsState(GetProductsStateEnum.loadMoreLoading));
     }
-
-    final result = await _repo.getProduct(GetProductsParams(reset: reset));
+    await Future.delayed(const Duration(seconds: 1, microseconds: 500));
+    _isLoading = true;
+    final result = await _repo.getProduct(
+      GetProductsParams(reset: reset, subCategoryId: subCategoryId),
+    );
+    _isLoading = false;
     result.fold(
       (failure) {
         _safeEmit(
@@ -39,9 +49,9 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
       (productList) {
         if (productList.isEmpty) {
           if (reset) {
-            _safeEmit(GetProductsState(GetProductsStateEnum.noData));
+            _safeEmit(const GetProductsState(GetProductsStateEnum.noData));
           } else {
-            _safeEmit(GetProductsState(GetProductsStateEnum.noMoreData));
+            _safeEmit(const GetProductsState(GetProductsStateEnum.noMoreData));
           }
           return;
         }
@@ -56,5 +66,6 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
     );
   }
 
-  Future loadMoreProducts() => _call(reset: false);
+  Future loadMoreProducts() =>
+      _call(reset: false, subCategoryId: _selectedSubCategoryId);
 }

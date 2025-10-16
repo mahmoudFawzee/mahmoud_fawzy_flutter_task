@@ -65,22 +65,20 @@ class CategoriesSection extends StatelessWidget {
                       categoryName: AppLocalizations.of(context)!.allOffers,
                     ),
 
-                    Flexible(
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemCount: state.categories!.length,
-                        itemBuilder: (context, index) {
-                          final category = state.categories![index];
-                          log('category id: $category');
-                          return CategoryCard(
-                            onTap: () => onSelect?.call(category.id!),
-                            index: index,
-                            categoryName: category.name,
-                            isLast: category == state.categories!.last,
-                          );
-                        },
-                      ),
+                    ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: state.categories!.length,
+                      itemBuilder: (context, index) {
+                        final category = state.categories![index];
+                        log('category id: $category');
+                        return CategoryCard(
+                          onTap: () => onSelect?.call(category.id!),
+                          index: index,
+                          categoryName: category.name,
+                          isLast: category == state.categories!.last,
+                        );
+                      },
                     ),
                   ],
                 );

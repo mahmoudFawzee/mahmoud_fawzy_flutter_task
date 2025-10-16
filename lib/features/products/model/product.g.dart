@@ -7,25 +7,24 @@ part of 'product.dart';
 // **************************************************************************
 
 Product _$ProductFromJson(Map<String, dynamic> json) => Product(
-  id: (json['id'] as num).toInt(),
+  id: (json['id'] as num?)?.toInt(),
   name: json['name'] as String,
   categoryId: (json['categoryId'] as num).toInt(),
   subCategoryId: (json['subCategoryId'] as num).toInt(),
   imageUrl: json['imageUrl'] as String,
   price: (json['price'] as num).toDouble(),
-  hasOffer: json['hasOffer'] as bool,
+  hasOffer: Product._intToBool(json['hasOffer']),
   discountedPrice: (json['discountedPrice'] as num?)?.toDouble(),
-  inCart: json['inCart'] as bool,
+  inCart: json['inCart'] == null ? false : Product._intToBool(json['inCart']),
 );
 
 Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
-  'id': instance.id,
   'name': instance.name,
   'categoryId': instance.categoryId,
   'subCategoryId': instance.subCategoryId,
   'imageUrl': instance.imageUrl,
   'price': instance.price,
-  'hasOffer': instance.hasOffer,
+  'hasOffer': Product._boolToInt(instance.hasOffer),
   'discountedPrice': instance.discountedPrice,
-  'inCart': instance.inCart,
+  'inCart': Product._boolToInt(instance.inCart),
 };
