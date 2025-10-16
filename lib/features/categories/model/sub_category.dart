@@ -8,8 +8,8 @@ part 'sub_category.g.dart';
 final class SubCategory extends Category {
   final int categoryId;
   const SubCategory({
+    super.id,
     required this.categoryId,
-    required super.id,
     required super.imageUrl,
     required super.name,
   });
