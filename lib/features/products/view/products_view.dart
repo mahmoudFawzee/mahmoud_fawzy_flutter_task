@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/view/widgets/categories_section.dart';
+import 'package:mahmoudfawzy_flutter_task/features/categories/view/categories_section.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/view/widgets/free_delivery_banner.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/view/widgets/products_page_leading.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/view/widgets/products_section.dart';
-import 'package:mahmoudfawzy_flutter_task/features/products/view/widgets/sub_categories_section.dart';
+import 'package:mahmoudfawzy_flutter_task/features/categories/view/sub_categories_section.dart';
 import '/l10n/app_localizations.dart';
 
 class ProductsView extends StatelessWidget {
