@@ -13,7 +13,7 @@ class CategoriesSection extends StatelessWidget {
   const CategoriesSection({super.key, required this.onSelect});
 
   ///if categoryId = -1 then get all products
-  final Function(int categoryId)? onSelect;
+  final Function(int? categoryId)? onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class CategoriesSection extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: [
                     CategoryCard(
-                      onTap: () => onSelect?.call(-1),
+                      onTap: () => onSelect?.call(null),
                       index: -1,
                       isFirst: true,
                       categoryName: AppLocalizations.of(context)!.allOffers,

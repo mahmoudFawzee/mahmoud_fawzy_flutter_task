@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:skeletonizer/skeletonizer.dart';
+import 'package:mahmoudfawzy_flutter_task/config/shared/loading/loading/home_shimmer_loading.dart';
+import '../../../config/shared/toast.dart';
 import '/features/categories/cubits/get_sub_categories_cubit/get_sub_categories_cubit.dart';
 import '/config/theme/app_theme.dart';
 import '../../../config/resources/image_manger.dart';
@@ -14,37 +15,62 @@ class SubCategoriesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 80.h,
-      child: BlocBuilder<GetSubCategoriesCubit, GetSubCategoriesState>(
+      child: BlocConsumer<GetSubCategoriesCubit, GetSubCategoriesState>(
+        listener: (context, state) {
+          if (state.state == GetSubCategoriesStateEnum.failure) {
+            CustomToast.showToast(state.message);
+          }
+        },
+        buildWhen: (previous, current) {
+          return [
+            GetSubCategoriesStateEnum.loading,
+            GetSubCategoriesStateEnum.noData,
+            GetSubCategoriesStateEnum.success,
+          ].contains(current.state);
+        },
         builder: (context, state) {
-          return Skeletonizer(
-            enabled: state.state == GetSubCategoriesStateEnum.loading,
-            child: ListView.builder(
+          if (state.state == GetSubCategoriesStateEnum.loading) {
+            return ListView.builder(
+              itemBuilder: (_, _) {
+                return const Column(
+                  children: [
+                    LoadingContainer(width: 73, height: 56),
+                    LoadingContainer(width: 73, height: 14),
+                  ],
+                );
+              },
+            );
+          } else if (state.state == GetSubCategoriesStateEnum.success) {
+            return ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 7,
+              itemCount: state.categories!.length,
               itemBuilder: (context, index) {
+                final category = state.categories![index];
                 return Container(
                   margin: EdgeInsets.only(right: index == 0 ? 16 : 8),
                   child: Column(
                     children: [
-                      const ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(4)),
+                      ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(4),
+                        ),
                         child: CustomNetworkImage(
-                          imgUrl:
-                              'https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687',
+                          imgUrl: category.imageUrl,
                           assetPlaceholder: ImageManger.loadingImage,
                           height: 56,
                           width: 73,
                           fit: BoxFit.cover,
                         ),
                       ),
-                      SizedBox(height: 2),
-                      Text('موضه رجالي', style: context.textStyles.bodySmall),
+                      const SizedBox(height: 2),
+                      Text(category.name, style: context.textStyles.bodySmall),
                     ],
                   ),
                 );
               },
-            ),
-          );
+            );
+          }
+          return const SizedBox();
         },
       ),
     );

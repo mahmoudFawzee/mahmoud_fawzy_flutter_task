@@ -26,7 +26,7 @@ class AppRoutes {
                 ),
                 BlocProvider(
                   create: (context) =>
-                      sl.get<GetSubCategoriesCubit>()..getCategories(),
+                      sl.get<GetSubCategoriesCubit>()..getSubCategories(),
                 ),
               ],
               child: const ProductsView(),

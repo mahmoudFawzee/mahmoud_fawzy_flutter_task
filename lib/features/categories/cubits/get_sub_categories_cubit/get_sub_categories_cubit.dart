@@ -16,9 +16,9 @@ class GetSubCategoriesCubit extends Cubit<GetSubCategoriesState> {
     }
   }
 
-  void getCategories() async {
+  void getSubCategories({int? categoryId}) async {
     _safeEmit(const GetSubCategoriesState(GetSubCategoriesStateEnum.loading));
-    final result = await _repo.getSubCategories();
+    final result = await _repo.getSubCategories(categoryId: categoryId);
     result.fold(
       (failure) {
         _safeEmit(
