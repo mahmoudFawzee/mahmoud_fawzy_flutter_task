@@ -21,4 +21,9 @@ class Category extends Equatable {
 
   @override
   List<Object?> get props => [id];
+
+  @override
+  String toString() {
+    return 'id: $id, name: $name, imageUrl: $imageUrl';
+  }
 }

@@ -19,7 +19,7 @@ class ProductsView extends StatelessWidget {
           const SizedBox(height: 45),
           PageLeading(appLocalizations: appLocalizations),
           const SizedBox(height: 10),
-          const CategoriesSection(),
+          CategoriesSection(onSelect: (categoryId) {}),
           const SizedBox(height: 25),
           const SubCategoriesSection(),
           const SizedBox(height: 25),

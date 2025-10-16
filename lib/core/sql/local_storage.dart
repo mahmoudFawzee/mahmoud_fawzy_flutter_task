@@ -109,7 +109,7 @@ class TableColumn {
   String _getPropsString(List<ColumnProps> props) {
     String propsStr = '';
     for (var prop in props) {
-      propsStr += prop.toSql();
+      propsStr += ' ${prop.toSql()}';
     }
     return propsStr;
   }
