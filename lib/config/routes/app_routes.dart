@@ -1,4 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import '../../features/categories/cubits/get_sub_categories_cubit/get_sub_categories_cubit.dart';
+import '/core/di/injection_container.dart';
+import '/features/categories/cubits/get_categories_cubit/get_categories_cubit.dart';
 
 import '../../features/products/view/home_base.dart';
 import '../../features/products/view/products_view.dart';
@@ -14,7 +18,19 @@ class AppRoutes {
         routes: [
           GoRoute(
             path: ProductsView.pageRoute,
-            builder: (context, state) => ProductsView(),
+            builder: (context, state) => MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      sl.get<GetCategoriesCubit>()..getCategories(),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      sl.get<GetSubCategoriesCubit>()..getCategories(),
+                ),
+              ],
+              child: const ProductsView(),
+            ),
           ),
         ],
       ),

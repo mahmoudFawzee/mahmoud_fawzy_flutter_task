@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '/core/sql/local_storage.dart';
+//import '/features/categories/repo/categories_repo.dart';
 import '/core/di/injection_container.dart';
 import '/config/routes/navigation_cubit.dart';
 import '/l10n/app_localizations.dart';
 import '/config/theme/app_theme.dart';
 import '/config/routes/app_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //?get it init
   initDependencies();
+  //?local sqflite data base init
+  await sl.get<LocalStorageClient>().init();
+  //await sl.get<CategoriesRepo>().addTestingCategories();
+  //await sl.get<CategoriesRepo>().addTestingSubCategories();
   runApp(const MyApp());
 }
 
