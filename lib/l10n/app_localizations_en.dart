@@ -22,4 +22,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myAccount => 'My Account';
+
+  @override
+  String get discoverOffers => 'Discover Offers';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get allOffers => 'All Offers';
+
+  @override
+  String get freeDelivery => 'Free Delivery';
+
+  @override
+  String get ifOrderNow => 'For any offer you order now!';
 }

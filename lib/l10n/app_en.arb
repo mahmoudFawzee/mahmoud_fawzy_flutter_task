@@ -19,5 +19,25 @@
   "myAccount": "My Account",
   "@myAccount": {
     "description": "home screen title"
+  },
+  "discoverOffers": "Discover Offers",
+  "@discoverOffers": {
+    "description": "home screen title"
+  },
+  "all": "All",
+  "@all": {
+    "description": "all word"
+  },
+  "allOffers": "All Offers",
+  "@allOffers": {
+    "description": "all word"
+  },
+  "freeDelivery": "Free Delivery",
+  "@freeDelivery": {
+    "description": "all word"
+  },
+  "ifOrderNow": "For any offer you order now!",
+  "@ifOrderNow": {
+    "description": "all word"
   }
 }

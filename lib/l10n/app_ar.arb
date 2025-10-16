@@ -4,5 +4,10 @@
   "chat": "محادثة",
   "addAdvertisement": "أضف إعلان",
   "myAdvertisements": "إعلاناتي",
-  "myAccount": "حسابي"
+  "myAccount": "حسابي",
+  "all": "الكل",
+  "discoverOffers": "أستكشف العروض",
+  "allOffers": "كل العروض",
+  "freeDelivery": "شحن مجاني",
+  "ifOrderNow": "لأي عرض تطلبه دلوقتي!"
 }

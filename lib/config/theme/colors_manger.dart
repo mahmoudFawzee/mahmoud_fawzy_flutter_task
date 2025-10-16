@@ -10,6 +10,7 @@ final class ColorsManger {
   static const fontGrey = Color(0x80090F1F);
   static const green = Color(0xff3A813F);
   static const offWhit = Color(0xffD9D9D9);
+  static const deepOffWhit = Color(0x0DF95B1C);
   static const greyBorder = Color(0x1A090F1F);
   static const deepBlue = Color(0xff0062E2);
   static const lightBlue = Color(0x0D0079FE);
