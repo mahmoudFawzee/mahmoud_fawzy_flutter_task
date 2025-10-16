@@ -1,8 +1,5 @@
 import 'dart:isolate';
-
-import 'package:mahmoudfawzy_flutter_task/core/sql/constants/tables_names.dart';
-
-import 'constants/keys.dart';
+import '/core/sql/tables/sql_initial_tables.dart';
 import '/core/sql/local_storage.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -26,34 +23,7 @@ final class SqfliteClient implements LocalStorageClient {
   }
 
   Future _initTables(Database db) async {
-    final List<DataBaseTable> tables = [
-      DataBaseTable(
-        tableName: TablesNames.productsTable,
-        columns: [
-          TableColumn(
-            name: SqlKeys.id,
-            columnType: ColumnType.int,
-            props: [ColumnProps.primaryKey],
-          ),
-          TableColumn(name: SqlKeys.categoryId, columnType: ColumnType.int),
-          TableColumn(name: SqlKeys.subCategoryId, columnType: ColumnType.int),
-
-          TableColumn(name: SqlKeys.name, columnType: ColumnType.string),
-          TableColumn(name: SqlKeys.imageUrl, columnType: ColumnType.string),
-
-          TableColumn(name: SqlKeys.price, columnType: ColumnType.double),
-          TableColumn(
-            name: SqlKeys.discountedPrice,
-            columnType: ColumnType.double,
-          ),
-
-          TableColumn(name: SqlKeys.inCart, columnType: ColumnType.int),
-          TableColumn(name: SqlKeys.hasOffer, columnType: ColumnType.int),
-        ],
-      ),
-    ];
-
-    for (var table in tables) {
+    for (var table in sqfliteInitialTables) {
       await _tablesOnCreate(db, table: table);
     }
   }
