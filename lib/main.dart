@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mahmoudfawzy_flutter_task/config/routes/navigation_cubit.dart';
-import 'package:mahmoudfawzy_flutter_task/l10n/app_localizations.dart';
+import '/core/di/injection_container.dart';
+import '/config/routes/navigation_cubit.dart';
+import '/l10n/app_localizations.dart';
 import '/config/theme/app_theme.dart';
 import '/config/routes/app_routes.dart';
 
 void main() {
+  initDependencies();
   runApp(const MyApp());
 }
 
