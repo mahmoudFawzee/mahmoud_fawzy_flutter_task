@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mahmoudfawzy_flutter_task/features/categories/cubits/get_sub_categories_cubit/get_sub_categories_cubit.dart';
@@ -29,7 +31,11 @@ class ProductsView extends StatelessWidget {
             },
           ),
           const SizedBox(height: 25),
-          const SubCategoriesSection(),
+          SubCategoriesSection(
+            onSelect: (subCategoryId) {
+              log('sub id: $subCategoryId');
+            },
+          ),
           const SizedBox(height: 25),
           FreeDeliveryBanner(appLocalizations: appLocalizations),
           //const SizedBox(height: 25),
