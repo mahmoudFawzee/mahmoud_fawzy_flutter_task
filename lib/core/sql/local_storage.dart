@@ -133,10 +133,12 @@ class RecordFiltering extends Equatable {
       final val = '${column.key}=?$trailing';
       whereValue += val;
     }
+    if (whereValue.isEmpty) return null;
     return whereValue;
   }
 
   List<Object?>? get whereArgus {
+    if (filteringColumns.isEmpty) return null;
     return filteringColumns.map((item) => item.value).toList();
   }
 

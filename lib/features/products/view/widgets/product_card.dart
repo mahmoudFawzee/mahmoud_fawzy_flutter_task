@@ -1,13 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mahmoudfawzy_flutter_task/config/shared/cubits/bool_based_cubit.dart';
 import 'package:mahmoudfawzy_flutter_task/config/theme/app_theme.dart';
+import 'package:mahmoudfawzy_flutter_task/features/products/model/product.dart';
 
 import '../../../../config/resources/image_manger.dart';
 import '../../../../config/shared/custom_network_image.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({super.key});
-
+  const ProductCard({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,25 +26,25 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const CustomNetworkImage(
-            imgUrl:
-                'https://m.media-amazon.com/images/I/41S+9swCRBL._AC_SX569_.jpg',
+          CustomNetworkImage(
+            imgUrl: product.imageUrl,
             assetPlaceholder: ImageManger.loadingImage,
+            height: 215.h,
+            width: 158.w,
+            fit: BoxFit.cover,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Flexible(
-                child: Text(
-                  'جاكيت من الصوف و الجلد المتين الجميل',
-                  style: TextStyle(),
-                  overflow: TextOverflow.ellipsis,
-                ),
+              Flexible(
+                child: Text(product.name, overflow: TextOverflow.ellipsis),
               ),
               SvgPicture.asset(ImageManger.offerImage),
             ],
           ),
-
+          const SizedBox(height: 10),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: RichText(
@@ -50,33 +56,32 @@ class ProductCard extends StatelessWidget {
                     style: context.textStyles.bodyMedium!,
                     children: [
                       TextSpan(
-                        text: '5000,000جم /',
+                        text: '${product.price}جم',
                         style: TextStyle(color: context.deepOrange),
                       ),
-                      TextSpan(
-                        text: '5000,600جم',
-                        style: TextStyle(
-                          decoration: TextDecoration.lineThrough,
-                          decorationThickness: 2,
-                          decorationColor: context.fontGrey,
-                          decorationStyle: TextDecorationStyle.solid,
-                          color: context.fontGrey,
+                      if (product.hasOffer)
+                        TextSpan(
+                          text: '/${product.discountedPrice}جم',
+                          style: TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            decorationThickness: 2,
+                            decorationColor: context.fontGrey,
+                            decorationStyle: TextDecorationStyle.solid,
+                            color: context.fontGrey,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),
               ),
-              IconButton(
-                padding: EdgeInsets.zero,
-                constraints: const BoxConstraints(),
-                splashRadius: 1,
-                onPressed: () {},
-                icon: const Icon(Icons.favorite_border_outlined),
+              FavoriteIconButton(
+                onChanged: (isFav) {
+                  log('added to fav');
+                },
               ),
             ],
           ),
-
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,29 +97,34 @@ class ProductCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 20),
           Flexible(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: SvgPicture.asset(ImageManger.checkIcon),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: context.lightBlue,
-                        shape: BoxShape.circle,
+                Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: SvgPicture.asset(ImageManger.checkIcon),
                       ),
-                      child: SvgPicture.asset(ImageManger.factoryIcon),
-                    ),
-                  ],
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: context.lightBlue,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SvgPicture.asset(ImageManger.factoryIcon),
+                      ),
+                    ],
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       height: 24,
@@ -144,6 +154,43 @@ class ProductCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class FavoriteIconButton extends StatelessWidget {
+  const FavoriteIconButton({
+    super.key,
+    this.isFavorite = false,
+    required this.onChanged,
+  });
+  final bool isFavorite;
+  final Function(bool isFav)? onChanged;
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => BoolBasedCubit(isSelected: isFavorite),
+      child: Builder(
+        builder: (context) {
+          return BlocBuilder<BoolBasedCubit, bool>(
+            builder: (context, state) {
+              return GestureDetector(
+                behavior: HitTestBehavior
+                    .opaque, // makes the tap area cover the icon only
+                onTap: () {
+                  onChanged?.call(!state);
+                  context.read<BoolBasedCubit>().change();
+                },
+                child: Icon(
+                  state ? Icons.favorite : Icons.favorite_border_outlined,
+                  //?on error is red
+                  color: state ? context.errorColor : null,
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }

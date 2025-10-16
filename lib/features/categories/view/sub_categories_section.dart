@@ -31,6 +31,9 @@ class SubCategoriesSection extends StatelessWidget {
         builder: (context, state) {
           if (state.state == GetSubCategoriesStateEnum.loading) {
             return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+
               itemBuilder: (_, _) {
                 return const Column(
                   children: [
