@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:mahmoudfawzy_flutter_task/core/sql/constants/keys.dart';
 import '/core/errors/exceptions.dart';
 import '/core/errors/failures.dart';
 import '/core/sql/constants/tables_names.dart';
@@ -17,12 +18,20 @@ final class CategoriesRepo {
         ),
       );
 
-  Future<Either<Failure, List<SubCategory>>> getSubCategories() async =>
-      await ExceptionsHandlerWrapper.call(
-        () async => SubCategory.fromJsonList(
-          await _storageClient.getFullTable(TablesNames.subCategoriesTable),
-        ),
-      );
+  Future<Either<Failure, List<SubCategory>>> getSubCategories({
+    required int? categoryId,
+  }) async => await ExceptionsHandlerWrapper.call(
+    () async => SubCategory.fromJsonList(
+      categoryId == null
+          ? await _storageClient.getFullTable(TablesNames.subCategoriesTable)
+          : await _storageClient.getRecords(
+              TablesNames.subCategoriesTable,
+              recordFilter: RecordFiltering([
+                FilteringColumn(SqlKeys.categoryId, categoryId),
+              ]),
+            ),
+    ),
+  );
 
   Future addTestingCategories() async {
     await _storageClient.insertRecords(

@@ -15,7 +15,7 @@ const _productsTable = DataBaseTable(
     TableColumn(
       name: SqlKeys.id,
       columnType: ColumnType.int,
-      props: [ColumnProps.primaryKey],
+      props: [ColumnProps.primaryKey, ColumnProps.autoIncrement],
     ),
     TableColumn(name: SqlKeys.categoryId, columnType: ColumnType.int),
     TableColumn(name: SqlKeys.subCategoryId, columnType: ColumnType.int),
@@ -36,7 +36,7 @@ const _categoriesTable = DataBaseTable(
     TableColumn(
       name: SqlKeys.id,
       columnType: ColumnType.int,
-      props: [ColumnProps.primaryKey],
+      props: [ColumnProps.primaryKey, ColumnProps.autoIncrement],
     ),
     TableColumn(name: SqlKeys.name, columnType: ColumnType.string),
     TableColumn(name: SqlKeys.imageUrl, columnType: ColumnType.string),
@@ -48,7 +48,7 @@ const _subCategoriesTable = DataBaseTable(
     TableColumn(
       name: SqlKeys.id,
       columnType: ColumnType.int,
-      props: [ColumnProps.primaryKey],
+      props: [ColumnProps.primaryKey, ColumnProps.autoIncrement],
     ),
     TableColumn(name: SqlKeys.categoryId, columnType: ColumnType.int),
 

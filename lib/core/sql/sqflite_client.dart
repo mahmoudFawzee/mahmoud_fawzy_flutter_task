@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:isolate';
 import '/core/sql/tables/sql_initial_tables.dart';
 import '/core/sql/local_storage.dart';
@@ -35,6 +36,7 @@ final class SqfliteClient implements LocalStorageClient {
 
   Future _tablesOnCreate(Database db, {required DataBaseTable table}) async {
     final query = await Isolate.run(() => table.toSqlQuery());
+    log('query for ${table.tableName}: $query');
     await db.execute(query);
   }
 
@@ -62,12 +64,15 @@ final class SqfliteClient implements LocalStorageClient {
     RecordFiltering? recordFilter,
   }) async {
     final db = await _getDB;
+    log('record where: ${recordFilter?.where}');
+    log('record where argus: ${recordFilter?.whereArgus}');
     final List<Map<String, dynamic>> maps = await db.query(
       tableName,
-      columns: recordFilter?.columns,
+      //columns: recordFilter?.columns,
       where: recordFilter?.where,
       whereArgs: recordFilter?.whereArgus,
     );
+    log('subs map: $maps');
     return maps;
   }
 
