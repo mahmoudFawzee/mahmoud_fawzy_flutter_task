@@ -8,4 +8,6 @@ final class SqlKeys {
   static const discountedPrice = 'discountedPrice';
   static const hasOffer = 'hasOffer';
   static const inCart = 'inCart';
+  static const availableForDays = 'availableForDays';
+  static const features = 'features';
 }
