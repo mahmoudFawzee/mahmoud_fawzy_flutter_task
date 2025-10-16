@@ -20,6 +20,8 @@ abstract class LocalStorageClient {
   Future<List<Map<String, dynamic>?>> getRecords(
     String tableName, {
     RecordFiltering? recordFilter,
+    int? perPage,
+    int? offset,
   });
 
   ///get table rows based on some condition

@@ -57,19 +57,19 @@ final class CategoriesRepo {
             categoryId: 1,
             imageUrl:
                 'https://img.chrono24.com/images/uhren/43172858-92a4qog9blbsls68halahwwr-Square280.jpg',
-            name: 'كرونو بيك',
+            name: 'كاسيو',
           ),
           const SubCategory(
             categoryId: 1,
             imageUrl:
                 'https://img.chrono24.com/images/uhren/39407530-3b4507l1wbnt0cafziwcfb22-Square280.jpg',
-            name: 'تايم أورا',
+            name: 'رولكس',
           ),
           const SubCategory(
             categoryId: 1,
             imageUrl:
                 'https://img.chrono24.com/images/uhren/42316663-r2dr09ibqqd4yrkh3odg9dw7-Square280.jpg',
-            name: 'لاكس مومنت',
+            name: 'ساعات ذكيه',
           ),
           const SubCategory(
             categoryId: 1,

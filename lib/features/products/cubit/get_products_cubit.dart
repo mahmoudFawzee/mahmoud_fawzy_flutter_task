@@ -18,23 +18,22 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
     }
   }
 
-  void getProduct({int? subCategoryId}) {
+  void getProduct({int? subCategoryId}) async {
     _selectedSubCategoryId = subCategoryId;
-    _call(subCategoryId: subCategoryId);
+    _productsList.clear();
+    await _call();
   }
 
-  Future _call({bool reset = true, int? subCategoryId}) async {
+  Future _call({bool reset = true}) async {
     if (_isLoading) return;
+    _isLoading = true;
     if (reset) {
-      _productsList.clear;
       _safeEmit(const GetProductsState(GetProductsStateEnum.loading));
     } else {
       _safeEmit(const GetProductsState(GetProductsStateEnum.loadMoreLoading));
     }
-    await Future.delayed(const Duration(seconds: 1, microseconds: 500));
-    _isLoading = true;
-    final result = await _repo.getProduct(
-      GetProductsParams(reset: reset, subCategoryId: subCategoryId),
+    final result = await _repo.getProducts(
+      GetProductsParams(reset: reset, subCategoryId: _selectedSubCategoryId),
     );
     _isLoading = false;
     result.fold(
@@ -66,6 +65,5 @@ final class GetProductsCubit extends Cubit<GetProductsState> {
     );
   }
 
-  Future loadMoreProducts() =>
-      _call(reset: false, subCategoryId: _selectedSubCategoryId);
+  Future loadMoreProducts() async => await _call(reset: false);
 }

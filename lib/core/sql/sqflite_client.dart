@@ -62,17 +62,19 @@ final class SqfliteClient implements LocalStorageClient {
   Future<List<Map<String, dynamic>?>> getRecords(
     String tableName, {
     RecordFiltering? recordFilter,
+    int? perPage,
+    int? offset,
   }) async {
     final db = await _getDB;
-    log('record where: ${recordFilter?.where}');
-    log('record where argus: ${recordFilter?.whereArgus}');
     final List<Map<String, dynamic>> maps = await db.query(
       tableName,
       //columns: recordFilter?.columns,
       where: recordFilter?.where,
       whereArgs: recordFilter?.whereArgus,
+      limit: perPage,
+      offset: offset,
     );
-    log('subs map: $maps');
+
     return maps;
   }
 
@@ -151,13 +153,10 @@ final class SqfliteClient implements LocalStorageClient {
     required int perPage,
     required int offset,
   }) async {
-    final db = await _getDB;
-    return await db.query(
+    return await getRecords(
       tableName,
-      //columns: recordFilter?.columns,
-      where: recordFilter?.where,
-      whereArgs: recordFilter?.whereArgus,
-      limit: perPage,
+      recordFilter: recordFilter,
+      perPage: perPage,
       offset: offset,
     );
   }

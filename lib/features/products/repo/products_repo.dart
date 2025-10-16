@@ -18,7 +18,7 @@ final class ProductsRepo {
   //? if offset = 0 and per page = 10=>first 10 items=>from[0:10[
   //? if offset = 10 and per page = 10=>seconde 10 items=>from[10:20[
   int offset = 0;
-  Future<Either<Failure, List<Product>>> getProduct(
+  Future<Either<Failure, List<Product>>> getProducts(
     GetProductsParams params,
   ) async => await ExceptionsHandlerWrapper.call(() async {
     if (params.reset) offset = 0;
@@ -36,16 +36,11 @@ final class ProductsRepo {
     return Product.fromJsonList(data);
   });
   Future addClothes() async {
-    await _addTestingProduct([..._clothes, ..._clothes]);
+    await _addTestingProduct([..._clothes]);
   }
 
   Future addWatches() async {
-    await _addTestingProduct([
-      ..._watches,
-      ..._watches,
-      ..._watches,
-      ..._watches,
-    ]);
+    await _addTestingProduct([..._watches]);
   }
 
   Future _addTestingProduct(List<Product> products) async {
@@ -138,7 +133,7 @@ final class ProductsRepo {
       price: 52145,
       discountedPrice: 500002,
       imageUrl:
-          'https://m.media-amazon.com/images/I/71YPH5q0MZL._AC_SX679_.jpg',
+          'https://m.media-amazon.com/images/I/81LWsjyYoML._AC_SX522_.jpg',
       name: 'ساعه أبل',
     ),
     Product(
@@ -173,7 +168,7 @@ final class ProductsRepo {
     ),
     Product(
       categoryId: 1,
-      subCategoryId: 2,
+      subCategoryId: 3,
       hasOffer: false,
       price: 5000554,
       discountedPrice: 5000000,
