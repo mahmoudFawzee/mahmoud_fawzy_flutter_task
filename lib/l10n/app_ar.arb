@@ -9,5 +9,10 @@
   "discoverOffers": "أستكشف العروض",
   "allOffers": "كل العروض",
   "freeDelivery": "شحن مجاني",
-  "ifOrderNow": "لأي عرض تطلبه دلوقتي!"
+  "ifOrderNow": "لأي عرض تطلبه دلوقتي!",
+  "chooseYourPackages": "أختر الباقات اللى تناسبك",
+  "chooseFromBelowPackages": "أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك",
+  "specialPackages": "باقات مخصصة لك",
+  "contactUs": "تواصل معنا لأختيار الباقة المناسبة لك",
+  "sellingTeam": "فريق المبيعات"
 }

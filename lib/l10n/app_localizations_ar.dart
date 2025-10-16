@@ -30,6 +30,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get all => 'الكل';
 
   @override
+  String get chooseYourPackages => 'أختر الباقات اللى تناسبك';
+
+  @override
+  String get chooseFromBelowPackages =>
+      'أختار من باقات التمييز بل أسفل اللى تناسب أحتياجاتك';
+
+  @override
   String get allOffers => 'كل العروض';
 
   @override
@@ -37,4 +44,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get ifOrderNow => 'لأي عرض تطلبه دلوقتي!';
+
+  @override
+  String get specialPackages => 'باقات مخصصة لك';
+
+  @override
+  String get contactUs => 'تواصل معنا لأختيار الباقة المناسبة لك';
+
+  @override
+  String get sellingTeam => 'فريق المبيعات';
 }

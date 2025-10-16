@@ -28,6 +28,14 @@
   "@all": {
     "description": "all word"
   },
+  "chooseYourPackages": "Choose Your Packages",
+  "@chooseYourPackages": {
+    "description": "all word"
+  },
+  "chooseFromBelowPackages": "Choose From Below Packages",
+  "@chooseFromBelowPackages": {
+    "description": "all word"
+  },
   "allOffers": "All Offers",
   "@allOffers": {
     "description": "all word"
@@ -38,6 +46,18 @@
   },
   "ifOrderNow": "For any offer you order now!",
   "@ifOrderNow": {
+    "description": "all word"
+  },
+  "specialPackages": "Special Packages",
+  "@specialPackages": {
+    "description": "all word"
+  },
+  "contactUs": "Free Delivery",
+  "@contactUs": {
+    "description": "all word"
+  },
+  "sellingTeam": "Free Delivery",
+  "@sellingTeam": {
     "description": "all word"
   }
 }

@@ -11,12 +11,14 @@ final class Package extends Equatable {
   final String? hint;
   final String name;
   final double price;
+  final double repeatingRatio;
   final int availableForDays;
   @JsonKey(toJson: TypeParser.listToJson, fromJson: TypeParser.listFromJson)
   final List<String> features;
   const Package({
     this.id,
     this.hint,
+    this.repeatingRatio = 1,
     required this.name,
     required this.price,
     required this.availableForDays,
