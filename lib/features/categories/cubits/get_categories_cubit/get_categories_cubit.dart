@@ -18,7 +18,6 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
 
   void getCategories() async {
     _safeEmit(const GetCategoriesState(GetCategoriesStateEnum.loading));
-    await Future.delayed(const Duration(seconds: 5));
     final result = await _repo.getCategories();
     result.fold(
       (failure) {

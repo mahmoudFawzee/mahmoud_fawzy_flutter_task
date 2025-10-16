@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mahmoudfawzy_flutter_task/config/shared/loading/loading/home_shimmer_loading.dart';
 import 'package:mahmoudfawzy_flutter_task/config/shared/toast.dart';
 import '/features/categories/cubits/get_categories_cubit/get_categories_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -32,46 +33,48 @@ class CategoriesSection extends StatelessWidget {
           if (state.state == GetCategoriesStateEnum.noData) {
             return const SizedBox();
           }
-
-          return Skeletonizer(
-            enabled: state.state == GetCategoriesStateEnum.loading,
-            child: Builder(
-              builder: (context) {
-                if (state.state == GetCategoriesStateEnum.success) {
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.categories!.length,
-                    itemBuilder: (context, index) {
-                      final category = state.categories![index];
-                      return Container(
-                        margin: EdgeInsets.only(
-                          right: index == 0 ? 16 : 8,
-                          left: category == state.categories!.last ? 16 : 8,
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: context.deepOffWhite,
-                          border: Border.all(color: context.greyBorder),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(4),
-                          ),
-                        ),
-                        child: Text(
-                          category.name,
-                          style: context.textStyles.bodyMedium!.copyWith(
-                            color: index == 0
-                                ? context.lightOrang
-                                : context.fontGrey,
-                          ),
-                        ),
-                      );
-                    },
+          if (state.state == GetCategoriesStateEnum.loading) {
+            return Skeletonizer(
+              enabled: true,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (_, index) {
+                  return const LoadingContainer(
+                    width: 90,
+                    height: 40,
+                    hMargin: 10,
+                    radius: 4,
                   );
-                }
-                return const SizedBox();
-              },
-            ),
+                },
+              ),
+            );
+          }
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: state.categories!.length,
+            itemBuilder: (context, index) {
+              final category = state.categories![index];
+              return Container(
+                margin: EdgeInsets.only(
+                  right: index == 0 ? 16 : 8,
+                  left: category == state.categories!.last ? 16 : 8,
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: context.deepOffWhite,
+                  border: Border.all(color: context.greyBorder),
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                ),
+                child: Text(
+                  category.name,
+                  style: context.textStyles.bodyMedium!.copyWith(
+                    color: index == 0 ? context.lightOrang : context.fontGrey,
+                  ),
+                ),
+              );
+            },
           );
         },
       ),

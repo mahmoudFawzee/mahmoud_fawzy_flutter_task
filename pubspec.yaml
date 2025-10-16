@@ -49,6 +49,8 @@ dependencies:
   get_it: ^8.2.0
   skeletonizer: ^2.1.0+1
   fluttertoast: ^9.0.0
+  loading_indicator: ^3.1.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
