@@ -14,19 +14,31 @@ class CustomCheckBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Checkbox(
-      materialTapTargetSize: applyPadding
-          ? null
-          : MaterialTapTargetSize.shrinkWrap,
-      visualDensity: applyPadding ? null : VisualDensity.compact,
-      fillColor: WidgetStateProperty.resolveWith<Color>((states) {
-        if (states.contains(WidgetState.selected)) {
-          return context.deepBlue;
-        }
-        return Colors.white;
-      }),
-      value: value,
-      onChanged: onChanged,
+    return Row(
+      children: [
+        Checkbox(
+          materialTapTargetSize: applyPadding
+              ? null
+              : MaterialTapTargetSize.shrinkWrap,
+          visualDensity: applyPadding ? null : VisualDensity.compact,
+          checkColor: context.white,
+          fillColor: WidgetStateProperty.resolveWith<Color>((states) {
+            if (states.contains(WidgetState.selected)) {
+              return context.deepBlue;
+            }
+            return Colors.white;
+          }),
+          value: value,
+          onChanged: onChanged,
+        ),
+        Text(
+          'اكسترا',
+          style: context.textStyles.bodyLarge!.copyWith(
+            fontWeight: FontWeight.w700,
+            color: value ? context.deepBlue : context.fontGrey,
+          ),
+        ),
+      ],
     );
   }
 }
