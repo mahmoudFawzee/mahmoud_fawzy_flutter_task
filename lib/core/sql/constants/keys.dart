@@ -8,7 +8,7 @@ final class SqlKeys {
   static const discountedPrice = 'discountedPrice';
   static const hasOffer = 'hasOffer';
   static const inCart = 'inCart';
-  static const availableForDays = 'availableForDays';
+  static const daysForExpiration = 'daysForExpiration';
   static const features = 'features';
   static const bannerString = 'bannerString';
   static const repeatingRatio = 'repeatingRatio';

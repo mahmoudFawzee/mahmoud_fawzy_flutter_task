@@ -1,7 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:mahmoudfawzy_flutter_task/features/packages/model/package.dart';
-import 'package:mahmoudfawzy_flutter_task/features/packages/repo/packages_repo.dart';
+import '/features/packages/model/package.dart';
+import '/features/packages/repo/packages_repo.dart';
 
 part 'get_packages_state.dart';
 
@@ -16,10 +18,11 @@ class GetPackagesCubit extends Cubit<GetPackagesState> {
     }
   }
 
-  Future getPackages() async {
+  void getPackages() async {
     _safeEmit(const GetPackagesState(GetPackagesStateEnum.loading));
 
     final result = await _repo.getPackages();
+    log('start get packages: $result');
     result.fold(
       (failure) {
         _safeEmit(
@@ -30,13 +33,17 @@ class GetPackagesCubit extends Cubit<GetPackagesState> {
         );
       },
       (packages) {
+        log('success and we got packages: $packages');
         if (packages.isEmpty) {
+          log('is empty');
           _safeEmit(const GetPackagesState(GetPackagesStateEnum.noData));
           return;
         }
+        log('now emit success state');
         _safeEmit(
           GetPackagesState(GetPackagesStateEnum.success, packages: packages),
         );
+        log('success state emitted');
       },
     );
   }

@@ -59,5 +59,13 @@
   "sellingTeam": "Free Delivery",
   "@sellingTeam": {
     "description": "all word"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "all word"
+  },
+  "numberOfViews": "Number of Views",
+  "@numberOfViews": {
+    "description": "all word"
   }
 }

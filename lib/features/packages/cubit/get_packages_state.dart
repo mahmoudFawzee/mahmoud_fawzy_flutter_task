@@ -7,7 +7,7 @@ final class GetPackagesState extends Equatable {
   const GetPackagesState(this.state, {this.error, this.packages});
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [state, error, packages];
 }
 
 enum GetPackagesStateEnum { initial, loading, noData, failure, success }

@@ -52,4 +52,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sellingTeam => 'Free Delivery';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get numberOfViews => 'Number of Views';
 }

@@ -53,4 +53,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get sellingTeam => 'فريق المبيعات';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get numberOfViews => 'ضعف عدد المشاهدات';
 }

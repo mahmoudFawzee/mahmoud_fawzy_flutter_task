@@ -44,7 +44,7 @@ class AppRoutes {
       GoRoute(
         path: PackagesScreen.pageRoute,
         builder: (context, state) => BlocProvider(
-          create: (context) => sl.get<GetPackagesCubit>(),
+          create: (context) => sl.get<GetPackagesCubit>()..getPackages(),
           child: const PackagesScreen(),
         ),
       ),

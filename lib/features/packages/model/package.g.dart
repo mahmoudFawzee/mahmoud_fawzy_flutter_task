@@ -12,8 +12,8 @@ Package _$PackageFromJson(Map<String, dynamic> json) => Package(
   repeatingRatio: (json['repeatingRatio'] as num?)?.toDouble() ?? 1,
   name: json['name'] as String,
   price: (json['price'] as num).toDouble(),
-  availableForDays: (json['availableForDays'] as num).toInt(),
-  features: TypeParser.listFromJson(json['features']),
+  daysForExpiration: (json['daysForExpiration'] as num).toInt(),
+  features: Package._decodeFeatures(json['features']),
 );
 
 Map<String, dynamic> _$PackageToJson(Package instance) => <String, dynamic>{
@@ -21,6 +21,6 @@ Map<String, dynamic> _$PackageToJson(Package instance) => <String, dynamic>{
   'name': instance.name,
   'price': instance.price,
   'repeatingRatio': instance.repeatingRatio,
-  'availableForDays': instance.availableForDays,
-  'features': TypeParser.listToJson(instance.features),
+  'daysForExpiration': instance.daysForExpiration,
+  'features': Package._encodeFeatures(instance.features),
 };

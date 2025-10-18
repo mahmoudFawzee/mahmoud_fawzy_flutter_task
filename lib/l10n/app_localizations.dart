@@ -187,6 +187,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Free Delivery'**
   String get sellingTeam;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Number of Views'**
+  String get numberOfViews;
 }
 
 class _AppLocalizationsDelegate
