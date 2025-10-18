@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mahmoudfawzy_flutter_task/config/theme/colors_manger.dart';
 
 final class AppTheme {
@@ -15,6 +16,12 @@ final class AppTheme {
         fontFamily: 'Tajawal',
       ),
       iconTheme: IconThemeData(color: ColorsManger.black),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(ColorsManger.deepBlue),
+        fixedSize: WidgetStateProperty.all(Size(328.w, 44.h)),
+      ),
     ),
     fontFamily: 'Tajawal',
     colorScheme:

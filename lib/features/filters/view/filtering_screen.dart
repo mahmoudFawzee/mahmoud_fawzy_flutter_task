@@ -86,7 +86,20 @@ class FilteringScreen extends StatelessWidget {
               items: const ['أي', 'جاهز', 'قيد الانشاء'],
               onSelect: (item) {},
             ),
+            const SizedBox(height: 80),
           ],
+        ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: ElevatedButton(
+        onPressed: () {},
+        child: Text(
+          'شاهد 10,000+ نتائج',
+          style: context.textStyles.bodyLarge!.copyWith(
+            fontWeight: FontWeight.w700,
+            color: context.white,
+          ),
         ),
       ),
     );

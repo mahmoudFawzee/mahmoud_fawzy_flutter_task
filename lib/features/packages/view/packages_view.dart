@@ -68,10 +68,7 @@ class PackagesScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton.icon(
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(context.deepBlue),
-          fixedSize: WidgetStateProperty.all(Size(328.w, 44.h)),
-        ),
+        
         iconAlignment: IconAlignment.end,
         onPressed: () {},
         icon: const Icon(Icons.arrow_forward, size: 24),
