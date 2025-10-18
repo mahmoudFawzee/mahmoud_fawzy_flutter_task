@@ -33,6 +33,7 @@ class ProductCard extends StatelessWidget {
             width: 158.w,
             fit: BoxFit.cover,
           ),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -107,12 +108,15 @@ class ProductCard extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   child: Stack(
                     children: [
-                      Align(
-                        alignment: Alignment.topRight,
+                      Positioned(
+                        top: 0,
+                        right: 0,
                         child: SvgPicture.asset(ImageManger.checkIcon),
                       ),
                       Container(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(6),
+                        height: 30,
+                        width: 30,
                         decoration: BoxDecoration(
                           color: context.lightBlue,
                           shape: BoxShape.circle,

@@ -19,4 +19,6 @@ final class ImageManger {
   static const keepIcon = '$_baseIconFolder/keep.svg';
   static const rocketIcon = '$_baseIconFolder/rocket.svg';
   static const workspaceIcon = '$_baseIconFolder/workspace_premium.svg';
+  static const railStateIcon = '$_baseIconFolder/rail_state.svg';
+  static const locationOnIcon = '$_baseIconFolder/location_on.svg';
 }

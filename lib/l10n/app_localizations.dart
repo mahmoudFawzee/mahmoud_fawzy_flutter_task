@@ -199,6 +199,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Number of Views'**
   String get numberOfViews;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Filtering'**
+  String get filtering;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Back to Default'**
+  String get backToDefault;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'category'**
+  String get category;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'change'**
+  String get change;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'location'**
+  String get location;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly Payments'**
+  String get monthlyPayments;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'price'**
+  String get price;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum Price'**
+  String get minimumPrice;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum Price'**
+  String get maximumPrice;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Amount'**
+  String get paymentAmount;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Months'**
+  String get months;
 }
 
 class _AppLocalizationsDelegate

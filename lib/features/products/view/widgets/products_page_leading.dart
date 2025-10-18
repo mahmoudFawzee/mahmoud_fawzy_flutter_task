@@ -1,7 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:mahmoudfawzy_flutter_task/config/theme/app_theme.dart';
+import 'package:go_router/go_router.dart';
+import '/config/theme/app_theme.dart';
+import '/features/filters/view/filtering_screen.dart';
 
 import '../../../../l10n/app_localizations.dart';
 
@@ -24,7 +24,7 @@ class PageLeading extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () => log('filtering page'),
+            onTap: () => context.push(FilteringScreen.pageRoute),
             child: Row(
               children: [
                 Text(

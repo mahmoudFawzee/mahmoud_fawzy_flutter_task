@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mahmoudfawzy_flutter_task/config/theme/colors_manger.dart';
 
 final class AppTheme {
   static ThemeData get appTheme => ThemeData(
     scaffoldBackgroundColor: ColorsManger.white,
+    appBarTheme: const AppBarThemeData(
+      backgroundColor: Colors.transparent,
+      titleSpacing: 0,
+      elevation: 0,
+      titleTextStyle: TextStyle(
+        color: ColorsManger.black,
+        fontSize: 24,
+        fontWeight: FontWeight.w500,
+        fontFamily: 'Tajawal',
+      ),
+      iconTheme: IconThemeData(color: ColorsManger.black),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(ColorsManger.deepBlue),
+        fixedSize: WidgetStateProperty.all(Size(328.w, 44.h)),
+      ),
+    ),
     fontFamily: 'Tajawal',
     colorScheme:
         ColorScheme.fromSeed(
