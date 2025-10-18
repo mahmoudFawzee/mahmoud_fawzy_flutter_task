@@ -18,22 +18,35 @@ class FilteringSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => IntBaseCubit(),
-      child: Column(
-        children: [
-          Text(title),
-          Wrap(
-            children: List.generate(
-              items.length,
-              (index) => FilteringItemWidget(
-                name: items[index],
-                index: index,
-                onTap: (id) {
-                  onSelect?.call(id);
-                },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: context.textStyles.bodyLarge!.copyWith(
+                fontWeight: FontWeight.w500,
+                color: context.fontGrey,
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 3),
+
+            Wrap(
+              children: List.generate(
+                items.length,
+                (index) => FilteringItemWidget(
+                  name: items[index],
+                  index: index,
+                  onTap: (id) {
+                    onSelect?.call(id);
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+          ],
+        ),
       ),
     );
   }
@@ -61,8 +74,10 @@ class FilteringItemWidget extends StatelessWidget {
           final selected = state == index;
           return Container(
             padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(5),
             decoration: BoxDecoration(
               color: context.deepBlue.withValues(alpha: .05),
+              borderRadius: const BorderRadius.all(Radius.circular(30)),
               border: Border.all(
                 color: selected ? context.deepBlue : context.greyBorder,
               ),
@@ -70,7 +85,7 @@ class FilteringItemWidget extends StatelessWidget {
             child: Text(
               name,
               style: context.textStyles.bodyMedium!.copyWith(
-                color: selected ? context.deepBlue : context.white,
+                color: selected ? context.deepBlue : context.fontGrey,
               ),
             ),
           );

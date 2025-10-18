@@ -253,6 +253,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Maximum Price'**
   String get maximumPrice;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Amount'**
+  String get paymentAmount;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Months'**
+  String get months;
 }
 
 class _AppLocalizationsDelegate

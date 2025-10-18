@@ -86,4 +86,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get maximumPrice => 'أعلي سعر';
+
+  @override
+  String get paymentAmount => 'قيمة القسط';
+
+  @override
+  String get months => 'عدد الأشهر';
 }

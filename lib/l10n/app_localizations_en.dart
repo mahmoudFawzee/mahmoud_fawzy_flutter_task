@@ -85,4 +85,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maximumPrice => 'Maximum Price';
+
+  @override
+  String get paymentAmount => 'Payment Amount';
+
+  @override
+  String get months => 'Months';
 }

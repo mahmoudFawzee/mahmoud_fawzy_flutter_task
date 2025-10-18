@@ -25,5 +25,7 @@
   "monthlyPayments": "الاقساط الشهرية",
   "price": "السعر",
   "maximumPrice": "أعلي سعر",
-  "minimumPrice": "أقل سعر"
+  "minimumPrice": "أقل سعر",
+  "months": "عدد الأشهر",
+  "paymentAmount": "قيمة القسط"
 }

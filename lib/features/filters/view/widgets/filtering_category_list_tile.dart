@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:mahmoudfawzy_flutter_task/config/theme/app_theme.dart';
 
 import '../../../../config/resources/image_manger.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -11,15 +12,25 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(appLocalizations.category),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(appLocalizations.category),
+        ),
         FilteringCategoryListTile(
           leadingImagePath: ImageManger.railStateIcon,
           title: 'عقارات',
           subTitle: 'فلل للبيع',
           trialing: GestureDetector(
             onTap: () {},
-            child: Text(appLocalizations.change),
+            child: Text(
+              appLocalizations.change,
+              style: context.textStyles.bodyMedium!.copyWith(
+                color: context.deepBlue,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ),
         ),
       ],
@@ -40,11 +51,26 @@ class FilteringCategoryListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: SvgPicture.asset(ImageManger.railStateIcon),
-      title: Text(title),
-      subtitle: Text(subTitle),
-      trailing: trialing,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: ListTile(
+        contentPadding: EdgeInsets.zero,
+        leading: SvgPicture.asset(leadingImagePath),
+        title: Text(
+          title,
+          style: context.textStyles.bodyMedium!.copyWith(
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        subtitle: Text(
+          subTitle,
+          style: context.textStyles.bodySmall!.copyWith(
+            fontWeight: FontWeight.w400,
+            color: context.fontGrey,
+          ),
+        ),
+        trailing: trialing,
+      ),
     );
   }
 }

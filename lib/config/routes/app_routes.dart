@@ -13,7 +13,7 @@ import '../../features/products/view/products_view.dart';
 
 class AppRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: PackagesScreen.pageRoute,
+    initialLocation: FilteringScreen.pageRoute,
     routes: [
       ShellRoute(
         builder: (context, state, child) {

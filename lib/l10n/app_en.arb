@@ -103,5 +103,13 @@
   "maximumPrice": "Maximum Price",
   "@maximumPrice": {
     "description": "all word"
+  },
+  "paymentAmount": "Payment Amount",
+  "@paymentAmount": {
+    "description": "all word"
+  },
+  "months": "Months",
+  "@months": {
+    "description": "all word"
   }
 }
