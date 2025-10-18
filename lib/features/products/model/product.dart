@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:mahmoudfawzy_flutter_task/core/parser/type_parser.dart';
 
 part 'product.g.dart';
 
@@ -11,10 +12,10 @@ final class Product {
   final int subCategoryId;
   final String imageUrl;
   final double price;
-  @JsonKey(fromJson: _intToBool, toJson: _boolToInt)
+  @JsonKey(fromJson: TypeParser.intToBool, toJson: TypeParser.boolToInt)
   final bool hasOffer;
   final double? discountedPrice;
-  @JsonKey(fromJson: _intToBool, toJson: _boolToInt)
+  @JsonKey(fromJson: TypeParser.intToBool, toJson: TypeParser.boolToInt)
   final bool inCart;
   const Product({
     this.id,
@@ -35,7 +36,4 @@ final class Product {
 
   static List<Product> fromJsonList(List json) =>
       json.map((item) => Product.fromJson(item)).toList();
-
-  static bool _intToBool(dynamic value) => value == 1;
-  static int _boolToInt(bool value) => value ? 1 : 0;
 }

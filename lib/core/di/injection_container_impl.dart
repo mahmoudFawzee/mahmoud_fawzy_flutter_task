@@ -6,6 +6,7 @@ Future<void> initDependencies() async {
   _setupHelpers();
   _setUpCategories();
   _setUpProducts();
+  _setUpPackages();
 }
 
 void _setupHelpers() {
@@ -21,4 +22,9 @@ void _setUpCategories() {
 void _setUpProducts() {
   sl.registerLazySingleton(() => ProductsRepo(sl.get()));
   sl.registerFactory(() => GetProductsCubit(sl.get()));
+}
+
+void _setUpPackages() {
+  sl.registerLazySingleton(() => PackagesRepo(sl.get()));
+  sl.registerFactory(() => GetPackagesCubit(sl.get()));
 }

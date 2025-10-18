@@ -30,6 +30,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get all => 'All';
 
   @override
+  String get chooseYourPackages => 'Choose Your Packages';
+
+  @override
+  String get chooseFromBelowPackages => 'Choose From Below Packages';
+
+  @override
   String get allOffers => 'All Offers';
 
   @override
@@ -37,4 +43,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ifOrderNow => 'For any offer you order now!';
+
+  @override
+  String get specialPackages => 'Special Packages';
+
+  @override
+  String get contactUs => 'Free Delivery';
+
+  @override
+  String get sellingTeam => 'Free Delivery';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get numberOfViews => 'Number of Views';
 }

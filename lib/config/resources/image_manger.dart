@@ -13,4 +13,10 @@ final class ImageManger {
   static const fire = '$_baseImagesFolder/fire.svg';
   static const addShoppingCart = '$_baseImagesFolder/add_shopping_cart.svg';
   static const talatMostafaImage = '$_baseImagesFolder/talat-mostafa.png';
+
+  static const acuteIcon = '$_baseIconFolder/acute.svg';
+  static const globeIcon = '$_baseIconFolder/globe.svg';
+  static const keepIcon = '$_baseIconFolder/keep.svg';
+  static const rocketIcon = '$_baseIconFolder/rocket.svg';
+  static const workspaceIcon = '$_baseIconFolder/workspace_premium.svg';
 }

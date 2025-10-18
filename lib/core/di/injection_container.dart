@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:mahmoudfawzy_flutter_task/features/packages/cubit/get_packages_cubit.dart';
+import 'package:mahmoudfawzy_flutter_task/features/packages/repo/packages_repo.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/cubit/get_products_cubit.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/repo/products_repo.dart';
 import '/core/sql/local_storage.dart';

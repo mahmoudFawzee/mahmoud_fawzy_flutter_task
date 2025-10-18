@@ -13,9 +13,9 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
   subCategoryId: (json['subCategoryId'] as num).toInt(),
   imageUrl: json['imageUrl'] as String,
   price: (json['price'] as num).toDouble(),
-  hasOffer: Product._intToBool(json['hasOffer']),
+  hasOffer: TypeParser.intToBool(json['hasOffer']),
   discountedPrice: (json['discountedPrice'] as num?)?.toDouble(),
-  inCart: json['inCart'] == null ? false : Product._intToBool(json['inCart']),
+  inCart: json['inCart'] == null ? false : TypeParser.intToBool(json['inCart']),
 );
 
 Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
@@ -24,7 +24,7 @@ Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
   'subCategoryId': instance.subCategoryId,
   'imageUrl': instance.imageUrl,
   'price': instance.price,
-  'hasOffer': Product._boolToInt(instance.hasOffer),
+  'hasOffer': TypeParser.boolToInt(instance.hasOffer),
   'discountedPrice': instance.discountedPrice,
-  'inCart': Product._boolToInt(instance.inCart),
+  'inCart': TypeParser.boolToInt(instance.inCart),
 };

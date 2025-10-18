@@ -143,6 +143,18 @@ abstract class AppLocalizations {
   /// all word
   ///
   /// In en, this message translates to:
+  /// **'Choose Your Packages'**
+  String get chooseYourPackages;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Choose From Below Packages'**
+  String get chooseFromBelowPackages;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
   /// **'All Offers'**
   String get allOffers;
 
@@ -157,6 +169,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'For any offer you order now!'**
   String get ifOrderNow;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Special Packages'**
+  String get specialPackages;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Free Delivery'**
+  String get contactUs;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Free Delivery'**
+  String get sellingTeam;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// all word
+  ///
+  /// In en, this message translates to:
+  /// **'Number of Views'**
+  String get numberOfViews;
 }
 
 class _AppLocalizationsDelegate

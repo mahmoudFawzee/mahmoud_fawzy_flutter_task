@@ -7,6 +7,7 @@ const List<DataBaseTable> sqfliteInitialTables = [
   _productsTable,
   _categoriesTable,
   _subCategoriesTable,
+  _packagesTable,
 ];
 
 const _productsTable = DataBaseTable(
@@ -54,5 +55,21 @@ const _subCategoriesTable = DataBaseTable(
 
     TableColumn(name: SqlKeys.name, columnType: ColumnType.string),
     TableColumn(name: SqlKeys.imageUrl, columnType: ColumnType.string),
+  ],
+);
+const _packagesTable = DataBaseTable(
+  tableName: TablesNames.packagesTable,
+  columns: [
+    TableColumn(
+      name: SqlKeys.id,
+      columnType: ColumnType.int,
+      props: [ColumnProps.primaryKey, ColumnProps.autoIncrement],
+    ),
+    TableColumn(name: SqlKeys.bannerString, columnType: ColumnType.string),
+    TableColumn(name: SqlKeys.name, columnType: ColumnType.string),
+    TableColumn(name: SqlKeys.price, columnType: ColumnType.double),
+    TableColumn(name: SqlKeys.daysForExpiration, columnType: ColumnType.int),
+    TableColumn(name: SqlKeys.repeatingRatio, columnType: ColumnType.double),
+    TableColumn(name: SqlKeys.features, columnType: ColumnType.string),
   ],
 );
