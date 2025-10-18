@@ -8,7 +8,7 @@ part 'package.g.dart';
 final class Package extends Equatable {
   @JsonKey(includeToJson: false)
   final int? id;
-  final String? hint;
+  final String? bannerString;
   final String name;
   final double price;
   final double repeatingRatio;
@@ -17,7 +17,7 @@ final class Package extends Equatable {
   final List<String> features;
   const Package({
     this.id,
-    this.hint,
+    this.bannerString,
     this.repeatingRatio = 1,
     required this.name,
     required this.price,

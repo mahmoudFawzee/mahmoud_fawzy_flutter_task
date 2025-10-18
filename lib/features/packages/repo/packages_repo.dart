@@ -26,6 +26,7 @@ final class PackagesRepo {
     Package(
       name: 'أكسترا',
       price: 5000,
+      repeatingRatio: 7.0,
       availableForDays: 60,
       features: [
         'رفع لأعلى القائمة كل 3 أيام',
@@ -37,7 +38,8 @@ final class PackagesRepo {
       name: "بلس",
       price: 5500,
       availableForDays: 180,
-      hint: 'أفضل قيمة مقابل سعر',
+      repeatingRatio: 18.0,
+      bannerString: 'أفضل قيمة مقابل سعر',
       features: [
         'رفع لأعلى القائمة كل 3 أيام',
         'تثبيت فى مقاول صحى',
@@ -50,8 +52,9 @@ final class PackagesRepo {
     Package(
       name: "سوبر",
       price: 7000,
-      hint: 'أعلى مشاهدات',
+      bannerString: 'أعلى مشاهدات',
       availableForDays: 360,
+      repeatingRatio: 24.0,
       features: [
         'رفع لأعلى القائمة كل 3 أيام',
         'تثبيت فى مقاول صحى',

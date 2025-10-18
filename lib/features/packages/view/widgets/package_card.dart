@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mahmoudfawzy_flutter_task/config/theme/app_theme.dart';
+import 'package:mahmoudfawzy_flutter_task/features/packages/model/package.dart';
 
 import '../../../../config/shared/check_box/custom_check_box.dart';
 import '../triangle_clip_path.dart';
 
 class PackageCard extends StatelessWidget {
-  const PackageCard({super.key});
-
+  const PackageCard({super.key, required this.package});
+  final Package package;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +40,8 @@ class PackageCard extends StatelessWidget {
                     children: [
                       CustomCheckBox(
                         applyPadding: false,
-                        value: false,
+                        label: 'اكسترا',
+                        initialValue: false,
                         onChanged: (value) {},
                       ),
                       Text(

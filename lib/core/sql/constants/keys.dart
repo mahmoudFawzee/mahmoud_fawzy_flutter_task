@@ -10,4 +10,6 @@ final class SqlKeys {
   static const inCart = 'inCart';
   static const availableForDays = 'availableForDays';
   static const features = 'features';
+  static const bannerString = 'bannerString';
+  static const repeatingRatio = 'repeatingRatio';
 }
