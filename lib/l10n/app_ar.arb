@@ -16,5 +16,14 @@
   "contactUs": "تواصل معنا لأختيار الباقة المناسبة لك",
   "sellingTeam": "فريق المبيعات",
   "next": "التالي",
-  "numberOfViews": "ضعف عدد المشاهدات"
+  "numberOfViews": "ضعف عدد المشاهدات",
+  "filtering": "فلترة",
+  "backToDefault": "رجوع للأفتراضي",
+  "category": "الفئة",
+  "change": "تغيير",
+  "location": "الموقع",
+  "monthlyPayments": "الاقساط الشهرية",
+  "price": "السعر",
+  "maximumPrice": "أعلي سعر",
+  "minimumPrice": "أقل سعر"
 }

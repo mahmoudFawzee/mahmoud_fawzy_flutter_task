@@ -67,5 +67,41 @@
   "numberOfViews": "Number of Views",
   "@numberOfViews": {
     "description": "all word"
+  },
+  "filtering": "Filtering",
+  "@filtering": {
+    "description": "all word"
+  },
+  "backToDefault": "Back to Default",
+  "@backToDefault": {
+    "description": "all word"
+  },
+  "category": "category",
+  "@category": {
+    "description": "all word"
+  },
+  "change": "change",
+  "@change": {
+    "description": "all word"
+  },
+  "location": "location",
+  "@location": {
+    "description": "all word"
+  },
+  "monthlyPayments": "Monthly Payments",
+  "@monthlyPayments": {
+    "description": "all word"
+  },
+  "price": "price",
+  "@price": {
+    "description": "all word"
+  },
+  "minimumPrice": "Minimum Price",
+  "@minimumPrice": {
+    "description": "all word"
+  },
+  "maximumPrice": "Maximum Price",
+  "@maximumPrice": {
+    "description": "all word"
   }
 }

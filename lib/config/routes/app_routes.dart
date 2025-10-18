@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mahmoudfawzy_flutter_task/features/filters/view/filtering_screen.dart';
 import 'package:mahmoudfawzy_flutter_task/features/packages/cubit/get_packages_cubit.dart';
 import 'package:mahmoudfawzy_flutter_task/features/packages/view/packages_view.dart';
 import 'package:mahmoudfawzy_flutter_task/features/products/cubit/get_products_cubit.dart';
@@ -43,10 +44,14 @@ class AppRoutes {
 
       GoRoute(
         path: PackagesScreen.pageRoute,
-        builder: (context, state) => BlocProvider(
+        builder: (_, _) => BlocProvider(
           create: (context) => sl.get<GetPackagesCubit>()..getPackages(),
           child: const PackagesScreen(),
         ),
+      ),
+      GoRoute(
+        path: FilteringScreen.pageRoute,
+        builder: (_, _) => const FilteringScreen(),
       ),
     ],
   );

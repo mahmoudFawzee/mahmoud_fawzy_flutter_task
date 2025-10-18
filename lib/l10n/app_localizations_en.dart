@@ -58,4 +58,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get numberOfViews => 'Number of Views';
+
+  @override
+  String get filtering => 'Filtering';
+
+  @override
+  String get backToDefault => 'Back to Default';
+
+  @override
+  String get category => 'category';
+
+  @override
+  String get change => 'change';
+
+  @override
+  String get location => 'location';
+
+  @override
+  String get monthlyPayments => 'Monthly Payments';
+
+  @override
+  String get price => 'price';
+
+  @override
+  String get minimumPrice => 'Minimum Price';
+
+  @override
+  String get maximumPrice => 'Maximum Price';
 }

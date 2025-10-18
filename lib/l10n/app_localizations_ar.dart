@@ -59,4 +59,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get numberOfViews => 'ضعف عدد المشاهدات';
+
+  @override
+  String get filtering => 'فلترة';
+
+  @override
+  String get backToDefault => 'رجوع للأفتراضي';
+
+  @override
+  String get category => 'الفئة';
+
+  @override
+  String get change => 'تغيير';
+
+  @override
+  String get location => 'الموقع';
+
+  @override
+  String get monthlyPayments => 'الاقساط الشهرية';
+
+  @override
+  String get price => 'السعر';
+
+  @override
+  String get minimumPrice => 'أقل سعر';
+
+  @override
+  String get maximumPrice => 'أعلي سعر';
 }
