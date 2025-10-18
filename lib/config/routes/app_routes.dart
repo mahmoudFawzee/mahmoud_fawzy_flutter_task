@@ -13,7 +13,7 @@ import '../../features/products/view/products_view.dart';
 
 class AppRoutes {
   static final GoRouter router = GoRouter(
-    initialLocation: FilteringScreen.pageRoute,
+    initialLocation: ProductsView.pageRoute,
     routes: [
       ShellRoute(
         builder: (context, state, child) {
@@ -29,8 +29,7 @@ class AppRoutes {
                       sl.get<GetCategoriesCubit>()..getCategories(),
                 ),
                 BlocProvider(
-                  create: (context) =>
-                      sl.get<GetSubCategoriesCubit>()..getSubCategories(),
+                  create: (context) => sl.get<GetSubCategoriesCubit>(),
                 ),
                 BlocProvider(
                   create: (context) => sl.get<GetProductsCubit>()..getProduct(),

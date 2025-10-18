@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mahmoudfawzy_flutter_task/features/categories/cubits/get_categories_cubit/get_categories_cubit.dart';
 import '/features/categories/cubits/get_sub_categories_cubit/get_sub_categories_cubit.dart';
 import '/features/categories/view/categories_section.dart';
 import '/features/products/cubit/get_products_cubit.dart';
@@ -23,6 +24,8 @@ class ProductsView extends StatelessWidget {
       body: BlocListener<GetSubCategoriesCubit, GetSubCategoriesState>(
         listener: (context, state) {
           if (state.state == GetSubCategoriesStateEnum.success) {
+            if (state.isFirstCall) return;
+            //?here we don't want to get any products under supCategory
             context.read<GetProductsCubit>().getProduct(
               subCategoryId: state.categories!.first.id,
             );
@@ -33,18 +36,28 @@ class ProductsView extends StatelessWidget {
             const SizedBox(height: 45),
             PageLeading(appLocalizations: appLocalizations),
             const SizedBox(height: 10),
-            CategoriesSection(
-              onSelect: (categoryId) {
-                if (categoryId == null) {
-                  context.read<GetProductsCubit>().getProduct(
-                    subCategoryId: null,
+            BlocListener<GetCategoriesCubit, GetCategoriesState>(
+              listener: (context, state) {
+                if (state.state == GetCategoriesStateEnum.success) {
+                  //?this means we get categories for the first time
+                  context.read<GetSubCategoriesCubit>().getSubCategories(
+                    getSubCategoryProducts: true,
                   );
-                  return;
                 }
-                context.read<GetSubCategoriesCubit>().getSubCategories(
-                  categoryId: categoryId,
-                );
               },
+              child: CategoriesSection(
+                onSelect: (categoryId) {
+                  if (categoryId == null) {
+                    context.read<GetProductsCubit>().getProduct(
+                      subCategoryId: null,
+                    );
+                  }
+                  context.read<GetSubCategoriesCubit>().getSubCategories(
+                    categoryId: categoryId,
+                    getSubCategoryProducts: categoryId == null,
+                  );
+                },
+              ),
             ),
             const SizedBox(height: 25),
             SubCategoriesSection(

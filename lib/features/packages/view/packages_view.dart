@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mahmoudfawzy_flutter_task/config/shared/loading/loading/home_shimmer_loading.dart';
 import 'package:mahmoudfawzy_flutter_task/config/theme/app_theme.dart';
 import 'package:mahmoudfawzy_flutter_task/features/packages/cubit/get_packages_cubit.dart';
@@ -68,7 +67,6 @@ class PackagesScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton.icon(
-        
         iconAlignment: IconAlignment.end,
         onPressed: () {},
         icon: const Icon(Icons.arrow_forward, size: 24),

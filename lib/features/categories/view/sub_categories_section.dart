@@ -13,24 +13,25 @@ class SubCategoriesSection extends StatelessWidget {
   final void Function(int subCategoryId)? onSelect;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80.h,
-      child: BlocConsumer<GetSubCategoriesCubit, GetSubCategoriesState>(
-        listener: (context, state) {
-          if (state.state == GetSubCategoriesStateEnum.failure) {
-            CustomToast.showToast(state.message);
-          }
-        },
-        buildWhen: (previous, current) {
-          return [
-            GetSubCategoriesStateEnum.loading,
-            GetSubCategoriesStateEnum.noData,
-            GetSubCategoriesStateEnum.success,
-          ].contains(current.state);
-        },
-        builder: (context, state) {
-          if (state.state == GetSubCategoriesStateEnum.loading) {
-            return ListView.builder(
+    return BlocConsumer<GetSubCategoriesCubit, GetSubCategoriesState>(
+      listener: (context, state) {
+        if (state.state == GetSubCategoriesStateEnum.failure) {
+          CustomToast.showToast(state.message);
+        }
+      },
+      buildWhen: (previous, current) {
+        return [
+          GetSubCategoriesStateEnum.loading,
+          GetSubCategoriesStateEnum.noData,
+          GetSubCategoriesStateEnum.success,
+        ].contains(current.state);
+      },
+      builder: (context, state) {
+        if (state.state == GetSubCategoriesStateEnum.loading) {
+          return SizedBox(
+            height: 80.h,
+
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
 
@@ -43,9 +44,13 @@ class SubCategoriesSection extends StatelessWidget {
                   ],
                 );
               },
-            );
-          } else if (state.state == GetSubCategoriesStateEnum.success) {
-            return ListView.builder(
+            ),
+          );
+        } else if (state.state == GetSubCategoriesStateEnum.success) {
+          return SizedBox(
+            height: 80.h,
+
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.categories!.length,
               itemBuilder: (context, index) {
@@ -57,11 +62,11 @@ class SubCategoriesSection extends StatelessWidget {
                   onTap: () => onSelect?.call(category.id!),
                 );
               },
-            );
-          }
-          return const SizedBox();
-        },
-      ),
+            ),
+          );
+        }
+        return const SizedBox();
+      },
     );
   }
 }

@@ -3,7 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mahmoudfawzy_flutter_task/config/routes/navigation_cubit.dart';
+import 'package:mahmoudfawzy_flutter_task/features/packages/view/packages_view.dart';
 import '/config/theme/app_theme.dart';
 import '/l10n/app_localizations.dart';
 
@@ -67,7 +69,10 @@ class HomeBase extends StatelessWidget {
                     isSelected: state == 4,
 
                     label: appLocalizations.myAccount,
-                    onTap: () => navigationCubit.navigateTo(4),
+                    onTap: () {
+                      context.push(PackagesScreen.pageRoute);
+                      navigationCubit.navigateTo(4);
+                    },
                   ),
                 ],
               );

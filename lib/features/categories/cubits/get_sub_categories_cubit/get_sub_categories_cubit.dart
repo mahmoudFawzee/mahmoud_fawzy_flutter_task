@@ -16,7 +16,10 @@ class GetSubCategoriesCubit extends Cubit<GetSubCategoriesState> {
     }
   }
 
-  void getSubCategories({int? categoryId}) async {
+  void getSubCategories({
+    int? categoryId,
+    bool getSubCategoryProducts = false,
+  }) async {
     _safeEmit(const GetSubCategoriesState(GetSubCategoriesStateEnum.loading));
     final result = await _repo.getSubCategories(categoryId: categoryId);
     result.fold(
@@ -38,6 +41,7 @@ class GetSubCategoriesCubit extends Cubit<GetSubCategoriesState> {
         _safeEmit(
           GetSubCategoriesState(
             GetSubCategoriesStateEnum.success,
+            isFirstCall: getSubCategoryProducts,
             categories: categories,
           ),
         );
